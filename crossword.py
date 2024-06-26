@@ -54,3 +54,13 @@ class CrosswordGenerator:
                 if self.grid[r][c] == ' ':
                     self.grid[r][c] = random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
+   def print_grid(self): 
+        print("   ", end="") 
+        for col in range(self.grid_size): 
+            print(f"{col:2}", end=" ") 
+        print() 
+        for row in range(self.grid_size): 
+            print(f"{row:2} ", end="") 
+            for col in range(self.grid_size): 
+                print(f"{self.grid[row][col]}  ", end="") 
+            print()
