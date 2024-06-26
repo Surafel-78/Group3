@@ -30,3 +30,21 @@ class CrosswordGenerator:
                 if self.grid[start_row + i][start_col] != ' ':
                     return False
         return True
+    def generate_crossword(self):
+        random.shuffle(self.words)
+        for word in self.words:
+            placed = False
+            while not placed:
+                direction = random.choice(['horizontal', 'vertical'])
+                if direction == 'horizontal':
+                    start_row = random.randint(1, self.grid_size - 2)
+                    start_col = random.randint(1, self.grid_size - len(word) - 1)
+                elif direction == 'vertical':
+                    start_row = random.randint(1, self.grid_size - len(word) - 1)
+                    start_col = random.randint(1, self.grid_size - 2)
+                
+                if self.can_place_word(word, direction, start_row, start_col):
+                    self.place_word(word, direction, start_row, start_col)
+                    placed = True
+        
+        self.fill_random_letters()
