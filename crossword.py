@@ -27,3 +27,6 @@ class CrosswordGenerator:
             if start_row + len(word) >= self.grid_size:
                 return False
             for i in range(len(word)):
+                if self.grid[start_row + i][start_col] != ' ':
+                    return False
+        return True
