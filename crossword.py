@@ -16,3 +16,14 @@ class CrosswordGenerator:
         elif direction == 'vertical':
             for i, letter in enumerate(word):
                 self.grid[start_row + i][start_col] = letter
+    def can_place_word(self, word, direction, start_row, start_col):
+        if direction == 'horizontal':
+            if start_col + len(word) >= self.grid_size:
+                return False
+            for i in range(len(word)):
+                if self.grid[start_row][start_col + i] != ' ':
+                    return False
+        elif direction == 'vertical':
+            if start_row + len(word) >= self.grid_size:
+                return False
+            for i in range(len(word)):
