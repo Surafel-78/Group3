@@ -48,3 +48,9 @@ class CrosswordGenerator:
                     placed = True
         
         self.fill_random_letters()
+    def fill_random_letters(self):
+        for r in range(1, self.grid_size - 1):
+            for c in range(1, self.grid_size - 1):
+                if self.grid[r][c] == ' ':
+                    self.grid[r][c] = random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+
