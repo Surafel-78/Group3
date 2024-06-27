@@ -64,7 +64,7 @@ class CrosswordGenerator:
             for col in range(self.grid_size): 
                 print(f"{self.grid[row][col]}  ", end="") 
             print()
-if name == 'main': 
+if __name__ == '__main__': 
     words = ['PYTHON', 'CROSSWORD', 'PUZZLE', 'GRID', 'WORDS'] 
     generator = CrosswordGenerator(words) 
     generator.generate_crossword() 
